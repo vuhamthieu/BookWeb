@@ -1,5 +1,5 @@
 if (localStorage.getItem("accessToken") != null) {
-    window.location.href = ".../spck-main/sanh.html";
+    window.location.href = "../spck-main/sanh.html";
 }
 
 // Import the functions you need from the SDKs you need
