@@ -101,7 +101,7 @@ document.getElementById('buttonLog').onclick = async (e) => {
             console.log(user.uid);
             localStorage.setItem("userUID", user.uid);
 
-            window.location.href = "../index.html";
+            window.location.href = "../spck-main/sanh.html";
         })
         .catch((error) => {
             const errorCode = error.code;
