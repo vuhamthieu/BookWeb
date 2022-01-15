@@ -1,6 +1,12 @@
-if (localStorage.getItem("accessToken") != null) {
-    window.location.href = "../spck-main/sanh.html";
+const checkUser = () => {
+    if (localStorage.getItem("accessToken") != null && localStorage.getItem("userUID") != null) {
+        // window.location.href = "../spck-main/sanh.html";
+        return true;
+    }
 }
+// if (checkUser()) {
+//     window.location.href = "../spck-main/sanh.html";
+// }
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
@@ -20,21 +26,21 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-// const db = getFirestore();
+const db = getFirestore();
 
-// import {
-//     getFirestore,
-//     doc,
-//     getDocs,
-//     setDoc,
-//     collection,
-//     addDoc,
-//     updateDoc,
-//     deleteDoc,
-//     deleteField,
-//     query,
-//     where,
-// } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+import {
+    getFirestore,
+    doc,
+    getDocs,
+    setDoc,
+    collection,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    deleteField,
+    query,
+    where,
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
 import {
     getAuth,
@@ -53,7 +59,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
 //Registration
-document.getElementById('buttonRegis').onclick = (e) => {
+document.getElementById('buttonRegis').onclick = async (e) => {
     e.preventDefault();
 
     const usernameRegis = document.getElementById('usernameRegis').value;
@@ -72,6 +78,17 @@ document.getElementById('buttonRegis').onclick = (e) => {
             const user = userCredential.user;
             // ...
             console.log("created");
+            alert("created");
+            localStorage.setItem("usernameRegis", usernameRegis);
+            const saveName = (user) => {
+                setDoc(doc(db, "users", user.uid), {
+                    name: localStorage.getItem("usernameRegis"),
+                }).then(() => {
+                    localStorage.removeItem("usernameRegis");
+                    // window.location.href = "../spck-main/sanh.html";
+                });
+            }
+            saveName(user);
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -100,7 +117,6 @@ document.getElementById('buttonLog').onclick = async (e) => {
             console.log(localStorage.getItem("accessToken"))
             console.log(user.uid);
             localStorage.setItem("userUID", user.uid);
-
             window.location.href = "../spck-main/sanh.html";
         })
         .catch((error) => {
@@ -140,3 +156,4 @@ document.getElementById('buttonLog').onclick = async (e) => {
     //     })
     // }
 }
+
