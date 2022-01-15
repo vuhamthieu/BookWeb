@@ -91,6 +91,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color:lightskyblue;
 }
 
 .header .header-1 .logo{
@@ -818,7 +819,11 @@ section{
     }
 
 }
-
+.hieusach {
+    color: whitesmoke;
+    font-size: 25px;
+    font-family: "Playfair Display", serif;
+  }
 
    
 *, *::after, *::before {
