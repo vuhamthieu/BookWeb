@@ -1,0 +1,29 @@
+body {
+    padding-top: 80px;
+  }
+  
+  .show-cart li {
+    display: flex;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+  .card-img-top {
+    width: 200px;
+    height: 200px;
+    align-self: center;
+  }
+
+
+  .thanhmenu {
+    position: absolute;
+    z-index: 100000;
+    background-color:lightskyblue;
+    position: fixed;
+    height: 70px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+  }
