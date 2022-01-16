@@ -39,12 +39,13 @@ const displayUsername = async () => {
     if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
         document.getElementById('username').innerHTML = docSnap.data().name;
+        document.getElementById('sign-up').remove();
         document.getElementById('username').onclick = (e) => {
             e.preventDefault();
             localStorage.removeItem("usernameRegis");
             localStorage.removeItem("userUID");
-            localStorage.removeItem("accessToken");
-            window.location.href = "../Sign-in-sign-up/index.html";
+            localStorage.removeItem("accessToken"); 
+            window.location.href = "../Sign-in-sign-up/sign.html";
         }
     } else {
         // doc.data() will be undefined in this case
