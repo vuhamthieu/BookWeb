@@ -498,3 +498,53 @@ $(function () {
     });
 
 });
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyAdoJGSrZtRN8uLvsTtO1fwpEHJjmkEWMw",
+    authDomain: "book-store-4b357.firebaseapp.com",
+    projectId: "book-store-4b357",
+    storageBucket: "book-store-4b357.appspot.com",
+    messagingSenderId: "410795088368",
+    appId: "1:410795088368:web:8a75a50a78aa340f482535"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore();
+
+import {
+    getFirestore,
+    doc,
+    getDocs,
+    setDoc,
+    collection,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    deleteField,
+    query,
+    where,
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut,
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+import {
+    getDatabase,
+    ref,
+    set,
+    onValue,
+    child
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
